@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NICHIRIN AI Assistant</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Your stylesheet (served by Flask static) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- favicon (served by Flask static) -->
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+</head>
+<body>
+  <div class="app-container">
+
+    <div class="chat-container">
+
+      <div class="chat-header">
+        <!-- use url_for for the image src -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Profile Pic" class="profile-pic">
+        <div class="header-text">
+          <h2 id="header-title">Hello</h2>
+          <p class="sub-title">NICHIRIN Assistant</p>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chat-box" aria-live="polite"></div>
+
+      <div class="message-input-bar">
+        <div class="input-wrapper">
+          <input type="text" id="message-input" placeholder="Ask me anything..." autocomplete="off" />
+          <button id="mic-button" class="icon-btn" title="Start voice input" aria-pressed="false" aria-label="Start voice input">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+          <button id="send-button" class="icon-btn send" title="Send message" aria-label="Send message">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="info-container" aria-hidden="false">
+      <div class="logo"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <h1>NICHIRIN</h1>
+      <p>AI Assistant</p>
+      <small class="version">Voice + Chat</small>
+    </aside>
+
+  </div>
+
+  <!-- JS served by Flask static -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
